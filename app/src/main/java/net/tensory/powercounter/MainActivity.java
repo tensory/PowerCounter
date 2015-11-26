@@ -14,6 +14,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends Activity {
 
     @Bind(R.id.event_count) TextView tvEventCount;
+    @Bind(R.id.times_today) TextView tvTimesToday;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,5 +55,6 @@ public class MainActivity extends Activity {
         super.onResume();
 
         tvEventCount.setText(String.valueOf(LogViewer.getInstance().getCount()));
+        tvTimesToday.setText(getResources().getQuantityString(R.plurals.times_today, LogViewer.getInstance().getCount()));
     }
 }
