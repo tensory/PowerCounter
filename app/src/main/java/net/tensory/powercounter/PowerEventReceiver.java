@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.support.v4.content.WakefulBroadcastReceiver;
 
 import net.tensory.powercounter.logging.EventsPerDayLogger;
-import net.tensory.powercounter.logging.LogViewer;
 import net.tensory.powercounter.logging.Logger;
+import net.tensory.powercounter.logging.EventNotifier;
 
 import java.util.Date;
 
@@ -19,6 +19,8 @@ public class PowerEventReceiver extends WakefulBroadcastReceiver {
         Logger logger = new EventsPerDayLogger(context);
 
         logger.subscribe(LogViewer.getInstance());
+        logger.subscribe(new EventNotifier(context));
+
         logger.logEvent(new Date());
     }
 }

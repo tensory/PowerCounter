@@ -3,6 +3,7 @@
 
     <string name="app_name">Power Counter</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="txt_you_have_checked" formatted="false">You have turned on the screen %d </string>
     <plurals name="times_today">
         <item quantity="one">time today</item>
         <item quantity="other">times today</item>

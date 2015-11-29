@@ -19,9 +19,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -29,7 +27,7 @@ import java.util.List;
 /**
  * Records a log of an event in a file, storing data about the current day.
  */
-public class EventsPerDayLogger implements Logger {
+public class EventsPerDayLogger implements Logger<Integer> {
     private static class LogResult {
         private DateTime lastLoggedDate;
         private int lastLoggedEventCount;
@@ -47,8 +45,7 @@ public class EventsPerDayLogger implements Logger {
             return lastLoggedEventCount;
         }
     }
-
-
+    
     private static final String FILENAME = "log.txt";
     private static final String DATE_FORMAT = "dd/MM/yyyy";
     private Context context;
@@ -69,18 +66,16 @@ public class EventsPerDayLogger implements Logger {
     public void logEvent(Date eventTime) {
         File file = prepareFile();
 
-        LogResult logResult = getLastLoggedResult(file);
+        updateLastLoggedResult(file);
+    }
 
-        try {
-            DateTimeFormatter ddmmyy = DateTimeFormat.forPattern(DATE_FORMAT);
-            persist(file, String.valueOf(logResult.getValue()), ddmmyy.print(logResult.getDateTime()));
-
-            for (LogSubscriber subscriber : subscribers) {
-                subscriber.update(logResult.getValue());
-            }
-        } catch (IOException ioe) {
-            Log.e(EventsPerDayLogger.class.getName(), "Could not write file " + FILENAME, ioe);
+    @Override
+    public Integer getLastLoggedValue() {
+        File file = prepareFile();
+        if (file == null) {
+            return 0;
         }
+        return getLastLoggedResult(file).getValue();
     }
 
     private File prepareFile() {
@@ -148,6 +143,16 @@ public class EventsPerDayLogger implements Logger {
             Log.e(EventsPerDayLogger.class.getName(), pe.getMessage(), pe);
         }
 
+        return new LogResult(lastLoggedDate, lastLoggedEventCount);
+    }
+
+
+    private void updateLastLoggedResult(File file) {
+        LogResult lastLoggedResult = getLastLoggedResult(file);
+
+        DateTime lastLoggedDate = lastLoggedResult.getDateTime();
+        int lastLoggedEventCount = lastLoggedResult.getValue();
+
         DateTime today = new DateTime().withTimeAtStartOfDay();
         if (lastLoggedDate != null) {
             // compare today's date to lastLoggedDate
@@ -161,6 +166,17 @@ public class EventsPerDayLogger implements Logger {
             lastLoggedEventCount = 1;
         }
 
-        return new LogResult(lastLoggedDate, lastLoggedEventCount);
+        LogResult logResult = new LogResult(lastLoggedDate, lastLoggedEventCount);
+
+        try {
+            DateTimeFormatter ddmmyy = DateTimeFormat.forPattern(DATE_FORMAT);
+            persist(file, String.valueOf(logResult.getValue()), ddmmyy.print(logResult.getDateTime()));
+
+            for (LogSubscriber subscriber : subscribers) {
+                subscriber.update(logResult.getValue());
+            }
+        } catch (IOException ioe) {
+            Log.e(EventsPerDayLogger.class.getName(), "Could not write file " + FILENAME, ioe);
+        }
     }
 }

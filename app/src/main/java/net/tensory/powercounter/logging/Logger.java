@@ -5,10 +5,12 @@ import net.tensory.powercounter.logging.notification.LogSubscriber;
 import java.util.Date;
 
 /**
- * // TODO: Add class doc comment
+ * Interface for Date-based loggers
  */
-public interface Logger {
+public interface Logger<T> {
     public void subscribe(LogSubscriber subscriber);
 
     public void logEvent(Date eventTime);
+
+    public T getLastLoggedValue();
 }

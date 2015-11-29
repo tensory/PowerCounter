@@ -1,5 +1,6 @@
-package net.tensory.powercounter.logging;
+package net.tensory.powercounter;
 
+import net.tensory.powercounter.logging.Logger;
 import net.tensory.powercounter.logging.notification.LogSubscriber;
 
 /**
@@ -25,6 +26,10 @@ public class LogViewer implements LogSubscriber {
 
     private void setEventCount(int newCount) {
         instance.count = newCount;
+    }
+
+    public void initialize(Logger<Integer> logger) {
+        instance.setEventCount(logger.getLastLoggedValue());
     }
 
     @Override

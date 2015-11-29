@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import net.danlew.android.joda.JodaTimeAndroid;
-import net.tensory.powercounter.logging.LogViewer;
+import net.tensory.powercounter.logging.EventsPerDayLogger;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -26,6 +26,8 @@ public class MainActivity extends Activity {
         // start the PowerEventService
         Intent intent = new Intent(this, PowerEventService.class);
         startService(intent);
+
+        LogViewer.getInstance().initialize(new EventsPerDayLogger(this));
     }
 
 //    @Override
