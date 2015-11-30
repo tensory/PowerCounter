@@ -45,14 +45,14 @@ public class EventNotifier implements LogSubscriber {
     private Notification getNotification(Context context, int value) {
         Intent intent = new Intent(context, MainActivity.class);
         PendingIntent mainActivityAction = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_ONE_SHOT);
-
-        String contentText = String.format(context.getString(R.string.txt_you_have_checked), value) + context.getResources().getQuantityString(R.plurals.times_today, value);
+        String countedText = String.format(context.getString(R.string.txt_you_have_checked), value);
+        String contentText = String.format("%s %s.", countedText, context.getResources().getQuantityString(R.plurals.times_today, value));
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         builder.setContentTitle(context.getString(R.string.app_name))
                 .setContentText(contentText)
                 .setContentIntent(mainActivityAction)
-                .setPriority(Notification.PRIORITY_LOW)
+                .setPriority(Notification.PRIORITY_HIGH)
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setAutoCancel(true);
 
