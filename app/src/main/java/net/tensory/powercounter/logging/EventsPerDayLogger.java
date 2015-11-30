@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Records a log of an event in a file, storing data about the current day.
  */
-public class EventsPerDayLogger implements Logger<Integer> {
+class EventsPerDayLogger implements Logger<Integer> {
     private static class LogResult {
         private DateTime lastLoggedDate;
         private int lastLoggedEventCount;
@@ -45,7 +45,7 @@ public class EventsPerDayLogger implements Logger<Integer> {
             return lastLoggedEventCount;
         }
     }
-    
+
     private static final String FILENAME = "log.txt";
     private static final String DATE_FORMAT = "dd/MM/yyyy";
     private Context context;
@@ -54,7 +54,7 @@ public class EventsPerDayLogger implements Logger<Integer> {
 
     public EventsPerDayLogger(Context context) {
         this.context = context;
-        subscribers = new ArrayList<>();
+        this.subscribers = new ArrayList<>();
     }
 
     @Override

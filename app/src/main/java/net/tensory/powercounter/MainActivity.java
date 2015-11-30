@@ -6,15 +6,17 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import net.danlew.android.joda.JodaTimeAndroid;
-import net.tensory.powercounter.logging.EventsPerDayLogger;
+import net.tensory.powercounter.logging.EventsPerDayLoggerFactory;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends Activity {
 
-    @Bind(R.id.event_count) TextView tvEventCount;
-    @Bind(R.id.times_today) TextView tvTimesToday;
+    @Bind(R.id.event_count)
+    TextView tvEventCount;
+    @Bind(R.id.times_today)
+    TextView tvTimesToday;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,7 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this, PowerEventService.class);
         startService(intent);
 
-        LogViewer.getInstance().initialize(new EventsPerDayLogger(this));
+        LogViewer.getInstance().initialize(EventsPerDayLoggerFactory.getInstance(this.getApplicationContext()));
     }
 
 //    @Override
