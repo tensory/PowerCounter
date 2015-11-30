@@ -29,6 +29,11 @@ public class EventNotifier implements LogSubscriber {
         sendNotification(value);
     }
 
+    public static void clearNotifications(Context context) {
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(NOTIFY_ID);
+    }
+
     private void sendNotification(int numberToDisplay) {
 
         Notification notification = getNotification(context, numberToDisplay);
@@ -57,15 +62,4 @@ public class EventNotifier implements LogSubscriber {
 
         return builder.build();
     }
-//
-//    protected static NotificationCompat.Builder getBaseNotification(Context context, Notification notification) {
-//        NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
-//        builder.setContentTitle(notification.getTitle())
-//                .setContentText(notification.getText())
-//                .setContentIntent(notification.getPendingIntent())
-//                .setSmallIcon(R.drawable.ic_notif_small_icon)
-//                .setColor(context.getResources().getColor(R.color.bg_orange))
-//                .setAutoCancel(true);
-//        return builder;
-//    }
 }
