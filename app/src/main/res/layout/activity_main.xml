@@ -8,25 +8,5 @@
               android:paddingRight="@dimen/activity_horizontal_margin"
               android:paddingTop="@dimen/activity_vertical_margin"
               android:orientation="vertical"
-              android:background="@color/pale_blue"
               tools:context="net.tensory.powercounter.MainActivity">
-
-    <TextView
-        android:id="@+id/event_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginBottom="-20dp"
-        android:textSize="200sp"
-        android:textColor="@color/light_turquoise_blue"/>
-
-    <TextView
-        android:id="@+id/times_today"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:fontFamily="sans-serif-light"
-        android:textSize="36sp"
-        android:textColor="@color/light_turquoise_blue"/>
-
 </LinearLayout>

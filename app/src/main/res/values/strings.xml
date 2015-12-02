@@ -2,11 +2,12 @@
 <resources>
 
     <string name="app_name">Snitch</string>
-    <string name="txt_you_have_checked" formatted="false">You have turned on the screen %d</string>
+    <string name="txt_you_have_checked" formatted="false">You\'ve turned on the screen %d</string>
     <plurals name="times_today">
         <item quantity="one">time today</item>
         <item quantity="other">times today</item>
     </plurals>
     <string name="action_settings">Settings</string>
+    <string name="txt_startup_message">Snitch is now running in the background.</string>
 
 </resources>
