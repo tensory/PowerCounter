@@ -53,7 +53,8 @@ public class EventNotifier implements LogSubscriber {
                 .setContentText(contentText)
                 .setContentIntent(mainActivityAction)
                 .setPriority(Notification.PRIORITY_HIGH)
-                .setSmallIcon(R.drawable.ic_launcher)
+                .setSmallIcon(R.drawable.ic_notification)
+                .setColor(context.getResources().getColor(R.color.material_dark_purple))
                 .setAutoCancel(true);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
