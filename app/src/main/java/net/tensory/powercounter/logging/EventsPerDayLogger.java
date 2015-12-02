@@ -159,6 +159,8 @@ class EventsPerDayLogger implements Logger<Integer> {
             if (today.isEqual(lastLoggedDate)) {
                 lastLoggedEventCount += 1;
             } else {
+                // It's a new day.
+                lastLoggedDate = today;
                 lastLoggedEventCount = 1;
             }
         } else {
