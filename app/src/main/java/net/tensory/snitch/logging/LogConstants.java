@@ -1,4 +1,4 @@
-package net.tensory.powercounter.logging;
+package net.tensory.snitch.logging;
 
 /**
  * // TODO: Add class doc comment

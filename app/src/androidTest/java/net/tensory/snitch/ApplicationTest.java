@@ -1,4 +1,4 @@
-package net.tensory.powercounter;
+package net.tensory.snitch;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

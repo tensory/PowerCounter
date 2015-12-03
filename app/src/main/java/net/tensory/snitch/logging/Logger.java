@@ -1,6 +1,6 @@
-package net.tensory.powercounter.logging;
+package net.tensory.snitch.logging;
 
-import net.tensory.powercounter.logging.notification.LogSubscriber;
+import net.tensory.snitch.logging.notification.LogSubscriber;
 
 import java.util.Date;
 

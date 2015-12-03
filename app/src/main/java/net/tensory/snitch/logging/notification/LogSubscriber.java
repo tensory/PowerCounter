@@ -1,4 +1,4 @@
-package net.tensory.powercounter.logging.notification;
+package net.tensory.snitch.logging.notification;
 
 /**
  * Define an interface for subscribers to changes in the log.

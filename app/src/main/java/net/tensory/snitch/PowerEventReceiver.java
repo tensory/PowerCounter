@@ -1,12 +1,12 @@
-package net.tensory.powercounter;
+package net.tensory.snitch;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.content.WakefulBroadcastReceiver;
 
-import net.tensory.powercounter.logging.EventsPerDayLoggerFactory;
-import net.tensory.powercounter.logging.Logger;
-import net.tensory.powercounter.logging.EventNotifier;
+import net.tensory.snitch.logging.EventsPerDayLoggerFactory;
+import net.tensory.snitch.logging.Logger;
+import net.tensory.snitch.logging.EventNotifier;
 
 import java.util.Date;
 

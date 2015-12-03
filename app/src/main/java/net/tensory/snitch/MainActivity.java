@@ -1,4 +1,4 @@
-package net.tensory.powercounter;
+package net.tensory.snitch;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import net.danlew.android.joda.JodaTimeAndroid;
-import net.tensory.powercounter.logging.EventsPerDayLoggerFactory;
+import net.tensory.snitch.logging.EventsPerDayLoggerFactory;
 
 public class MainActivity extends Activity {
 

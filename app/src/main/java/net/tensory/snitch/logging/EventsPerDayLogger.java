@@ -1,9 +1,9 @@
-package net.tensory.powercounter.logging;
+package net.tensory.snitch.logging;
 
 import android.content.Context;
 import android.util.Log;
 
-import net.tensory.powercounter.logging.notification.LogSubscriber;
+import net.tensory.snitch.logging.notification.LogSubscriber;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;

@@ -1,4 +1,4 @@
-package net.tensory.powercounter.logging;
+package net.tensory.snitch.logging;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -8,9 +8,9 @@ import android.content.Intent;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 
-import net.tensory.powercounter.MainActivity;
-import net.tensory.powercounter.R;
-import net.tensory.powercounter.logging.notification.LogSubscriber;
+import net.tensory.snitch.MainActivity;
+import net.tensory.snitch.R;
+import net.tensory.snitch.logging.notification.LogSubscriber;
 
 /**
  * Send a device notification when a log event occurs.

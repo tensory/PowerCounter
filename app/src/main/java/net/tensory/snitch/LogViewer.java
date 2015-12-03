@@ -1,7 +1,7 @@
-package net.tensory.powercounter;
+package net.tensory.snitch;
 
-import net.tensory.powercounter.logging.Logger;
-import net.tensory.powercounter.logging.notification.LogSubscriber;
+import net.tensory.snitch.logging.Logger;
+import net.tensory.snitch.logging.notification.LogSubscriber;
 
 /**
  * Listener to changes in the log, offering access to the current logged value.
